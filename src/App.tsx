@@ -1,16 +1,17 @@
+import React from 'react'
+// assets
 //import logo from "./logo.svg";
+// componets
+import Layout from './app/components/layout'
 // style
-import React from "react";
-import "./app.scss";
+import './app.scss'
 
 const App: React.FC = (): any => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Rock Paper Scissors</h1>
-      </header>
-    </div>
-  )
+    return (
+        // <div className="App">
+        <Layout />
+        // </div>
+    )
 }
 
 export default App

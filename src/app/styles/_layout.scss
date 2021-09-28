@@ -1,0 +1,25 @@
+#root {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.layout {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.centered {
+    align-items: center;
+    justify-content: center;
+    float: none;
+    display: block;
+    margin: 0 auto;
+}
+
+.space-between-rows {
+    margin: 50px 0 50px 0;
+}
