@@ -1,8 +1,30 @@
-.play-button {
-    width: 100px;
+.game-button-image {
+    width: 80px;
     align-items: center;
     justify-content: center;
     float: none;
     display: block;
     margin: 0 auto;
+    background-color: transparent;
+}
+
+.button {
+    background: transparent;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    margin: 0 10px 0 10px;
+}
+
+.choice-papel-header {
+    color: black;
+    margin-bottom: 40px;
+}
+
+.button-selected {
+    background: transparent;
+    border: solid 1px black;
 }
