@@ -10,7 +10,7 @@ import Header from './header'
 import PlayGame from './playGame'
 import ResultsTable from './resultsTable'
 
-const Layout: React.FC = (): any => {
+const Layout: React.FC = ({ children }): any => {
     return (
         <Container fluid className="layout">
             <Row>

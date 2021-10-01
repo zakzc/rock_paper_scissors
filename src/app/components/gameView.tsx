@@ -3,24 +3,30 @@ import React from 'react'
 import Rock from '../assets/img/stone.png'
 import Paper from '../assets/img/paper.png'
 import Scissors from '../assets/img/scissors.png'
+import RockPaperScissors from '../assets/img/rock-paper-scissors.png'
 // boot
 import Table from 'react-bootstrap/Table'
+// state
+import { useAppContext } from '../state/context'
 
 const GameView: React.FC = (): any => {
     // * data
-    let playerYou = 'scissors'
-    let player1 = 'rock'
-    let player2 = 'paper'
-    let winner = 2
+    const { userChoice } = useAppContext()
+    let player1 = ''
+    let player2 = ''
+    let winner = 0
     // draw = 3
 
     const playerImage: any = (choice: any) => {
+        console.log(choice)
         if (choice === 'rock') {
             return Rock
         } else if (choice === 'paper') {
             return Paper
-        } else {
+        } else if (choice === 'scissors') {
             return Scissors
+        } else {
+            return RockPaperScissors
         }
     }
 
@@ -35,15 +41,17 @@ const GameView: React.FC = (): any => {
                 </tr>
                 <tr>
                     <td colSpan={2}>
+                        <div className={winner === 0 || winner === 3 ? 'winner' : 'loser'}>
+                            <img src={playerImage(userChoice)} alt={userChoice} className="game-button-image" />
+                        </div>
+                        {userChoice}
+                    </td>
+                    <td colSpan={2}>
                         <div className={winner === 1 || winner === 3 ? 'winner' : 'loser'}>
                             <img src={playerImage(player1)} alt={player1} className="game-button-image" />
                         </div>
                     </td>
-                    <td colSpan={2}>
-                        <div className={winner === 0 || winner === 3 ? 'winner' : 'loser'}>
-                            <img src={playerImage(playerYou)} alt={playerYou} className="game-button-image" />
-                        </div>
-                    </td>
+
                     <td colSpan={2}>
                         <div className={winner === 2 || winner === 3 ? 'winner' : 'loser'}>
                             <img src={playerImage(player2)} alt={player1} className="game-button-image" />
