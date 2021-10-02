@@ -1,17 +1,19 @@
 import React from 'react'
-// state context
-import { AppContext } from '../state/context'
-import { useAppContext } from '../state/context'
+import { createContext, useState } from 'react'
 // components
 import Layout from './layout'
 
-const Application: React.FC = (): any => {
-    //const [userChoice, setUserChoice] = useState<string>(userChoice('rock'))
-    const { userChoice } = useAppContext()
-    const { setUserChoice } = useAppContext()
-    // userChoice: string
-    // player2Choice: string
-    // winner: string
+///
+type SetNewValue = (newValue: string) => void
+interface AppContextInterface {
+    userChoice: any
+    setUserChoice: SetNewValue
+}
+
+export const AppContext = createContext<AppContextInterface>({ userChoice: '', setUserChoice: (value: string) => {} })
+
+const Application: React.FC<React.ReactNode> = (props) => {
+    const [userChoice, setUserChoice] = useState('paper')
     return (
         <AppContext.Provider value={{ userChoice, setUserChoice }}>
             <Layout />

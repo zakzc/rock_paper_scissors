@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 // assets
 import Rock from '../assets/img/stone.png'
 import Paper from '../assets/img/paper.png'
@@ -7,18 +7,17 @@ import RockPaperScissors from '../assets/img/rock-paper-scissors.png'
 // boot
 import Table from 'react-bootstrap/Table'
 // state
-import { useAppContext } from '../state/context'
+import { AppContext } from './application'
 
 const GameView: React.FC = (): any => {
     // * data
-    const { userChoice } = useAppContext()
+    const { userChoice, setUserChoice } = useContext(AppContext)
     let player1 = ''
     let player2 = ''
     let winner = 0
     // draw = 3
 
     const playerImage: any = (choice: any) => {
-        console.log(choice)
         if (choice === 'rock') {
             return Rock
         } else if (choice === 'paper') {
@@ -44,7 +43,6 @@ const GameView: React.FC = (): any => {
                         <div className={winner === 0 || winner === 3 ? 'winner' : 'loser'}>
                             <img src={playerImage(userChoice)} alt={userChoice} className="game-button-image" />
                         </div>
-                        {userChoice}
                     </td>
                     <td colSpan={2}>
                         <div className={winner === 1 || winner === 3 ? 'winner' : 'loser'}>

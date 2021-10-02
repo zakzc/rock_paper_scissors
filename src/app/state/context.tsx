@@ -1,18 +1,23 @@
-import { createContext, useContext } from 'react'
+import { createContext, useState } from 'react'
+//
+import Layout from '../components/layout'
 
-// TS type
-export type AppContextType = {
+type SetValue = (value: string) => void
+interface AppContextInterface {
     userChoice: string
-    setUserChoice: (c: string) => void
-    // player2Choice: string
-    // winner: string
+    setUserChoice: SetValue
 }
 
-export const AppContext = createContext<AppContextType>({
-    userChoice: 'paper',
-    setUserChoice: () => {},
-    // player2Choice: 'paper',
-    // winner: 'none',
-})
+export const AppContext = createContext<AppContextInterface | null>(null)
 
-export const useAppContext = () => useContext(AppContext)
+const AppContextProvider: React.FC = (props) => {
+    const [userChoice, setUserChoice] = useState('rock')
+    console.log(userChoice)
+    return (
+        <AppContext.Provider value={{ userChoice, setUserChoice }}>
+            <Layout />
+        </AppContext.Provider>
+    )
+}
+
+export default AppContextProvider
