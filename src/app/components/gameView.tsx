@@ -11,10 +11,10 @@ import { AppContext } from './application'
 
 const GameView: React.FC = (): any => {
     // * data
-    const { userChoice, setUserChoice } = useContext(AppContext)
-    let player1 = ''
+    const { userChoice, player1 } = useContext(AppContext)
     let player2 = ''
     let winner = 0
+
     // draw = 3
 
     const playerImage: any = (choice: any) => {
@@ -38,6 +38,7 @@ const GameView: React.FC = (): any => {
                     <th colSpan={2}>Player 1</th>
                     <th colSpan={2}>Player 2</th>
                 </tr>
+
                 <tr>
                     <td colSpan={2}>
                         <div className={winner === 0 || winner === 3 ? 'winner' : 'loser'}>
