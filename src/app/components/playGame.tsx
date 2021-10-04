@@ -8,6 +8,7 @@ import getPlayerChoice from '../utils/playerChoice'
 
 const PlayGame: React.FC = (): any => {
     let myVal = getPlayerChoice()
+
     return (
         <div className="playGame ">
             <button className="button">

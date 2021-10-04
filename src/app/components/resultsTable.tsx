@@ -15,18 +15,18 @@ const ResultsTable: React.FC = (): any => {
             <tbody>
                 <tr>
                     <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
+                    <td>Victory</td>
+                    <td>Player 1</td>
                 </tr>
                 <tr>
                     <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
+                    <td>Draw</td>
+                    <td>No one</td>
                 </tr>
                 <tr>
                     <td>3</td>
-                    <td>Larry the Bird</td>
-                    <td>Larry the Bird</td>
+                    <td>Victory</td>
+                    <td>User</td>
                 </tr>
             </tbody>
         </Table>
