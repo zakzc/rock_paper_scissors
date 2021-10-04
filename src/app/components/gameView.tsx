@@ -8,13 +8,22 @@ import RockPaperScissors from '../assets/img/rock-paper-scissors.png'
 import Table from 'react-bootstrap/Table'
 // state
 import { AppContext } from './application'
+// util
+import getPlayerChoice from '../utils/playerChoice'
 
 const GameView: React.FC = (): any => {
     // * data
-    const { userChoice, player1 } = useContext(AppContext)
-    let player2 = ''
+    const { userChoice } = useContext(AppContext)
+    const { player1, setPlayer1 } = useContext(AppContext)
+    const { player2, setPlayer2 } = useContext(AppContext)
+    const { startGame } = useContext(AppContext)
+    ///
+    if (startGame === true) {
+        setPlayer1(getPlayerChoice())
+        setPlayer2('rock')
+    }
     let winner = 0
-
+    ///
     // draw = 3
 
     const playerImage: any = (choice: any) => {
@@ -58,6 +67,7 @@ const GameView: React.FC = (): any => {
                     </td>
                 </tr>
             </tbody>
+            {startGame}
         </Table>
     )
 }
