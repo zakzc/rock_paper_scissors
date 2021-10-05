@@ -5,16 +5,31 @@ import Loosing from '../assets/img/loosing.png'
 // boot
 import Table from 'react-bootstrap/Table'
 
-const devData = [
-    { round: 1, result: [true, false, false] },
-    { round: 2, result: [false, false, false] },
-    { round: 3, result: [true, false, true] },
-    { round: 4, result: [false, true, false] },
+const gameData = [
+    { round: 1, choice: ['rock', 'scissor', 'scissor'], scores: [true, false, false] },
+    { round: 2, choice: ['rock', 'paper', 'scissor'], scores: [false, false, false] },
+    { round: 3, choice: ['paper', 'rock', 'paper'], scores: [true, false, true] },
+    { round: 4, choice: ['paper', 'scissor', 'paper'], scores: [false, true, false] },
 ]
 
 const ResultsTable: React.FC = (): any => {
+    const References = () => (
+        <Table>
+            <tbody>
+                <thead>References:</thead>
+                <tr>
+                    <img src={Winning} alt="victory" className="table-image-victory" />
+                    <td>Victory</td>
+                </tr>
+                <tr>
+                    <img src={Loosing} alt="defeat" className="table-image-defeat" />
+                    <td>Defeat</td>
+                </tr>
+            </tbody>
+        </Table>
+    )
     return (
-        <Table striped borderless hover responsive className="results-table centered">
+        <Table borderless hover responsive className="results-table centered">
             <thead>
                 <tr>
                     <th>Round</th>
@@ -24,51 +39,37 @@ const ResultsTable: React.FC = (): any => {
                 </tr>
             </thead>
             <tbody>
-                {devData.map((r, i) => (
+                {gameData.map((r, i) => (
                     <tr key={i}>
                         <td>{r.round}</td>
                         <td>
-                            {r.result[0] === true ? (
+                            {r.scores[0] === true ? (
                                 <img src={Winning} alt="victory" className="table-image-victory" />
                             ) : (
                                 <img src={Loosing} alt="defeat" className="table-image-defeat" />
                             )}
+                            <p>{r.choice[0]}</p>
                         </td>
                         <td>
-                            {r.result[1] === true ? (
+                            {r.scores[1] === true ? (
                                 <img src={Winning} alt="victory" className="table-image-victory" />
                             ) : (
                                 <img src={Loosing} alt="defeat" className="table-image-defeat" />
                             )}
+                            <p>{r.choice[1]}</p>
                         </td>
                         <td>
-                            {r.result[2] === true ? (
+                            {r.scores[2] === true ? (
                                 <img src={Winning} alt="victory" className="table-image-victory" />
                             ) : (
                                 <img src={Loosing} alt="defeat" className="table-image-defeat" />
                             )}
+                            <p>{r.choice[2]}</p>
                         </td>
                     </tr>
                 ))}
-                {/* <tr>
-                    <td>1</td>
-                    <td>false</td>
-                    <td>false</td>
-                    <td>false</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Draw</td>
-                    <td>No one</td>
-                    <td> 1</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Victory</td>
-                    <td>User</td>
-                    <td> 1</td>
-                </tr> */}
             </tbody>
+            <References />
         </Table>
     )
 }
