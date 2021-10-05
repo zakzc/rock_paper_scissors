@@ -19,12 +19,8 @@ const Layout: React.FC = ({ children }): any => {
                 </Col>
             </Row>
             <Row className="space-between-rows">
-                <Col xs sm md lg="5">
-                    <ChoicePanel />
-                </Col>
-                <Col></Col>
-                <Col xs sm md lg="3">
-                    <ResultsTable />
+                <Col xs sm md lg="10">
+                    <GameView />
                 </Col>
             </Row>
             <Row className="space-between-rows">
@@ -35,8 +31,12 @@ const Layout: React.FC = ({ children }): any => {
                 <Col xs sm md lg="5"></Col>
             </Row>
             <Row className="space-between-rows">
-                <Col xs sm md lg="10">
-                    <GameView />
+                <Col xs sm md lg="5">
+                    <ChoicePanel />
+                </Col>
+                <Col></Col>
+                <Col xs sm md lg="3">
+                    <ResultsTable />
                 </Col>
             </Row>
         </Container>
